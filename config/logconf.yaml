@@ -1,0 +1,42 @@
+version: 1
+formatters:
+  simple:
+    format: '[%(asctime)s] [%(levelname)s] - %(name)s - %(message)s'
+  error:
+    format: "[%(asctime)s] [%(levelname)s] - <PID %(process)d:%(processName)s> %(name)s.%(funcName)s(): %(message)s"
+
+handlers:
+  console_handler:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filename: log/out.log
+    maxBytes: 104857600
+    backupCount: 10
+    encoding: utf8
+  error_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: error
+    filename: log/err.log
+    maxBytes: 104857600
+    backupCount: 10
+    encoding: utf8
+
+loggers:
+  dev:
+    level: DEBUG
+    handlers: [ console_handler, file_handler, error_file_handler ]
+  prod:
+    level: INFO
+    handlers: [ console_handler, file_handler, error_file_handler ]
+
+root:
+  level: NOTSET
+  handlers: [ console_handler, file_handler, error_file_handler ]
+  propagate: yes

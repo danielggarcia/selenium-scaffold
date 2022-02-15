@@ -1,0 +1,5 @@
+environment: dev
+log_config_path: config/logconf.yaml
+webdriver_config_dir: config/webdrivers
+definitions_dir: definitions
+default_webdriver_config_file: config/webdrivers/default.yaml

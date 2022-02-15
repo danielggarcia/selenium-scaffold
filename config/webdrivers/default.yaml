@@ -1,0 +1,23 @@
+driver:
+  type: "ChromeDriver"
+  executable_path: "bin/chromedriver.exe"
+options:
+  binary_path: ""
+  arguments:
+    --lang: "en_EN"
+    --ignore-ssl-errors: "yes"
+    --ignore-certificate-errors: ""
+  experimental_options:
+    excludeSwitches: ['load-extension', 'enable-automation']
+    useAutomationExtension: False
+    prefs:
+      profile.default_content_settings.popups: 0
+      download.prompt_for_download: False
+      download.directory_upgrade: False
+      download.default_directory: ".cache/download"
+      credentials_enable_service: False
+      profile.password_manager_enabled: False
+extended_options:
+  start_maximized: True
+  implicit_timeout: 10
+  page_load_timeout: 30

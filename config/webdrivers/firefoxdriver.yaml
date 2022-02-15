@@ -1,0 +1,16 @@
+driver:
+  type: "FirefoxDriver"
+  executable_path: "bin/geckodriver.exe"
+options:
+  binary_path: ""
+  accept_untrusted_certs: True
+  preferences:
+    intl.accept_languages: "en_EN"
+    browser.download.folderList: 2
+    browser.download.dir: ".cache/download"
+    browser.helperApps.neverAsk.saveToDisk: "application/pdf"
+    pdfjs.disabled: True
+extended_options:
+  start_maximized: True
+  implicit_timeout: 10
+  page_load_timeout: 30
